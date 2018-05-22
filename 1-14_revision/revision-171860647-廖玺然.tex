@@ -1,0 +1,230 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% File: hw.tex 						   %
+% Description: LaTeX template for homework.                %
+%
+% Feel free to modify it (mainly the 'preamble' file).     %
+% Contact hfwei@nju.edu.cn (Hengfeng Wei) for suggestions. %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% IMPORTANT NOTE: Compile this file using 'XeLaTeX' (not 'PDFLaTeX') %
+%
+% If you are using TeXLive 2016 on windows,                          %
+% you may need to check the following post:                          %
+% https://tex.stackexchange.com/q/325278/23098                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[11pt, a4paper, UTF8]{ctexart}
+\input{preamble}  % modify this file if necessary
+
+%%%%%%%%%%%%%%%%%%%%
+\title{期末订正}
+\me{廖玺然}{171860647}{计算机类}
+\date{\today}     % you can specify a date like ``2017年9月30日''.
+%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\maketitle
+%%%%%%%%%%%%%%%%%%%%
+\noplagiarism	% always keep this
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begincorrection	% begin the ``correction'' part (Optional)
+
+%%%%%%%%%%
+\begin{problem}[DH: 2.10]
+    A permutation (a1,...,aN) can be represented by a vector P of length N with P[I] = aI. 
+    Design an algorithm which, given an integer N and a vector of integers P of length N, 
+    checks whether P represents any permutation of AN.
+\end{problem}
+
+\begin{cause}
+  未考虑P中值的范围。
+\end{cause}
+
+% Or use the ``solution'' environment
+\begin{revision}
+    (1) read N, P[N]; //输入N和P[N]\\
+    (2) define integer X, Y; //声明整形变量X, Y\\
+    (3) for X going from 1 to N-1 do the following: //P[N]中每两个数之间比较一次\\
+    $~~~$     (3.1) for Y going from X+1 to N do the following:\\
+    $~~~~~~$         (3.1.1) if P[X] = P[Y] then\\
+    $~~~~~~~~~$               (3.1.1.1) output \"P is not a permutation of AN.\";\\
+    $~~~~~~~~~$               (3.1.1.2) goto (5);\\
+    $~~~~~~$         (3.1.2) if P[X] > N then \\
+    $~~~~~~~~~$               (3.1.2.1) output “P is not a permutation of ”;\\
+    $~~~~~~~~~$               (3.1.2.2) goto (5)\\
+      (4) output \"P is a permutation of AN.\";\\
+      (5) end. //算法终止
+\end{revision}
+%%%%%%%%%%
+\begin{problem}[UD: 7.8]
+    Consider the following sets:\\
+(i)$(A \cap B) \backslash (A \cap B \cap C)$\\
+(ii)$A \cap B \backslash (A \cap B \cap C)$\\
+(iii)$A \cap B \cap C^{C}$\\
+(iv)$(A \cap B) \backslash C$\\
+(v)$(A \backslash C) \cap (B \backslash C)$\\
+(a) Which of the sets above are written ambiguously, if any?\\
+(b) Of the sets above that make sense, which ones equal the set sketched in Figure 7.2?\\
+\end{problem}
+
+\begin{revision}
+    (a) $(ii)$\\
+    (b) all except $(ii)$
+\end{revision}
+%%%%%%%%%%%%%%%
+\begin{problem}[UD: 8.9]
+    Guess a simpler way to express the set A defined as\\
+    $$A = \mathbb{Q}\backslash\bigcap_{n \in \mathbb{Z}}(\mathbb{R}\backslash\{2n\}),$$
+and then prove that your guess is correct.
+\end{problem}
+
+\begin{revision}
+    $A = \bigcup_{n \in \mathbb{Z}}\{2n\},$\\
+    $\forall x \in \bigcup_{n \in \mathbb{Z}}\{2n\},~~
+    x \notin \bigcap_{n \in \mathbb{Z}}(\mathbb{R}\backslash\{2n\})$ and 
+    $x \in \mathbb{Q},$\\
+    Thus $x \in \mathbb{Q}\backslash\bigcap_{n \in \mathbb{Z}}(\mathbb{R}\backslash\{2n\}),$\\
+    $\forall x \notin \bigcup_{n \in \mathbb{Z}}\{2n\},~~x \in \bigcap_{n \in \mathbb{Z}}(\mathbb{R}\backslash\{2n\}),$\\
+    Thus $x \notin \mathbb{Q}\backslash\bigcap_{n \in \mathbb{Z}}(\mathbb{R}\backslash\{2n\}).$
+\end{revision}
+%%%%%%%%%%%%%%%
+\begin{problem}[UD: 8.11]
+    A collection of sets $\{A_{\alpha\}: \alpha \in I}$ is said to be a pairwise disjoint collection if the following is satisfied: 
+    For all $\alpha,\beta \in I$, if $A_{\alpha} \cap A_{\beta} \neq \emptyset$, then $A_{\alpha} = A_{\beta}$. 
+    Suppose that each set $A_{\alpha}$ is nonempty.\\
+    (g) If $\bigcap_{\alpha \in I}A_{\alpha} = \emptyset$, is $\{A_{\alpha}:\alpha \in I\}$ 
+    necessarily a pairwise disjoint collection of sets?
+\end{problem}
+
+\begin{revision}
+    Nope, cuz suppose $A_{\alpha_{1}} \cap A_{\alpha_{2}} \neq \emptyset,~~A_{\alpha_{1}} \neq A_{\alpha_{2}}$,\\
+    and suppose $A_{\alpha_{3}} \cap A_{\alpha_{1}} = \emptyset,~~A_{\alpha_{3}} \cap A_{\alpha_{2}} = \emptyset$,\\
+    then $\bigcap_{\alpha \in I}A_{\alpha} = \emptyset$ but $\{A_{\alpha}:\alpha \in I\}$ is not a 
+    pairwise disjoint collection of sets.
+\end{revision}
+%%%%%%%%%%%%%%%
+\begin{problem}[UD: 11.9]
+    Let X be a nonempty set and $\{A_{\alpha}: \alpha \in I\}$ be a partition of X.\\
+    (b) Suppose further that $A_{\alpha} \neq X$ for every $\alpha \in I$. 
+    Is $\{X \backslash A_{\alpha}: \alpha \in I\}$ a partition of X? Prove it or give a counterexample.
+\end{problem}
+
+\begin{revision}
+    (b) Nope, let $X = \{1,2,3\},~~A_{\alpha_{1}} = \{1\},~~A_{\alpha_{2}} = \{2\},~~
+    A_{\alpha_{3}} = \{3\},$\\
+    $~~~~~~$Then $X\backslash A_{\alpha_{1}} = \{2,3\},~~X\backslash A_{\alpha_{2}} = \{1,3\},$\\
+    $~~~~~~X\backslash A_{\alpha_{1}}\cap X\backslash A_{\alpha_{2}} \neq \emptyset,$\\
+    $~~~~~~$Thus $\{X \backslash A_{\alpha}: \alpha \in I\}$ is not a partition of X.
+\end{revision}
+%%%%%%%%%%%%%%
+\begin{problem}[UD: 14.13]
+    Let $F([0,1])$ denote the set of all real-valued functions defined on the closed 
+  interval $[0,1]$. Define a new function $\phi:F([0,1]) \rightarrow \mathbb{R}$ by 
+  $\phi(f) = f(0)$. Is it onto? Remember to provide examples where appropriate.
+\end{problem}
+
+\begin{cause}
+    未理解清楚集合所指对象。
+\end{cause}
+
+\begin{revision}
+    Yep.\\
+    Since $F([0,1])$ denotes the set of all real-valued functions defined on the closed 
+    interval $[0,1]$,\\
+    $\forall x \in \mathbb{R},~~\exists f \in F([0,1])$ that $f(0) = x,$\\
+    Thus $\phi$ is onto.
+\end{revision}
+%%%%%%%%%%%%%%
+\begin{problem}[UD: 15.1]
+    Find the compositions $f \circ g$ and $g \circ f$ assuming the domain of each is 
+  the largest set of real numbers for which the function $f$, $g$, $f \circ g$ and 
+  $g \circ f$ make sense. In your solution to each of the following, give the compositions 
+  and the corresponding domain and range:\\
+  (a) $f(x) = 1/(1 + x)$, $g(x) = x^{2}$;\\
+  (b) $f(x) = x^{2}$, $g(X) = \sqrt{x}$;\\
+  (c) $f(x) = 1/x$, $g(x) = x^{2} + 1$;
+\end{problem}
+
+\begin{cause}
+    未理解清楚语义。
+\end{cause}
+
+\begin{revision}
+  (a) $(f \circ g)(x) = 1/(1 + x^{2})$, $dom(f \circ g) = \mathbb{R}$, 
+  $ran(f \circ g) = (0,1]$.\\
+  $~~~~~~(g \circ f)(x) = \frac{1}{(1 + x)^{2}}$, $dom(g \circ f) = \mathbb{R} \backslash \{-1\}$, 
+  $ran(g \circ f) = (0,+\infty)$.\\
+  (b) $(f \circ g)(x) = x$, $dom(f \circ g) = [0,+\infty)$, $ran(f \circ g) = [0,+\infty)$.\\
+  $~~~~~~(g \circ f)(x) = |x|$, $dom(g \circ f) = \mathbb{R}$, $ran(g \circ f) = [0,+\infty)$.\\
+  (c) $(f \circ g)(x) = 1/(1 + x^{2})$, $dom(f \circ g) = \mathbb{R}$, 
+  $ran(f \circ g) = (0,1]$.\\
+  $~~~~~~(g \circ f)(x) = x^{-2} + 1$, $dom(g \circ f) = \mathbb{R} \backslash \{0\}$, 
+  $ran(g \circ f) = (1,+\infty)$.
+\end{revision}
+%%%%%%%%%%%%%%%
+\begin{problem}[UD: 16.22]
+    Let $X$ be a nonempty set and let $A_{1}$ and $A_{2}$ be subsets of $X$. 
+    Recall the notation for characteristic function, $\chi _{A}$, defined in 
+    Problem 13.5.\\
+    (a) If $\chi_{A_{1}} = \chi_{A_{2}}$, must $A_{1} = A_{2}$?\\
+    (d) Can you find a similar result for $\chi_{X\backslash A_{1}}$?
+\end{problem}
+
+\begin{revision}
+    (a) Yep.\\
+    $~~~~~~\forall x \in X$, if $\chi_{A_{1}}(x) = \chi_{A_{2}}(x) = 1$,\\
+    $~~~~~~$Then $x \in A_{1},~~x \in A_{2}$,\\
+    $~~~~~~$If $\chi_{A_{1}}(x) = \chi_{A_{2}}(x) = 0$,\\
+    $~~~~~~$Then $x \notin A_{1},~~x \notin A_{2}$,\\
+    $~~~~~~$Thus $\forall x \in X$, if $x \in A_{1}$ then $x \in A_{2}$, 
+    if $x \notin A_{1}$ then $x \notin A_{2}$,\\
+    $~~~~~~$Thus $A_{1} = A_{2}$.\\
+    (d) $-|\chi_{X \backslash A_{1}} - \chi_{X \backslash A_{2}}| + \chi_{A_{1} \cup A_{2}} 
+    = \chi_{A_{1} \cap A_{2}}$
+\end{revision}
+%%%%%%%%%%%%%%%%%
+\begin{problem}[UD: 22.1]
+    Give an example, if possible, of each of the following:\\
+  (b) a countably infinite collection of nonempty sets whose union is 
+  finite;\\
+  (c) a countably infinite collection of pairwise disjoint nonempty 
+  sets whose union is finite.
+\end{problem}
+
+\begin{solution}
+    (b) Impossible. Suppose $|A| = n$, then $|2_{A}| = 2_{n}$,\\
+    $~~~~~~$If $A$ is an infinite collection of sets, then the union of the 
+    sets is infinite too.\\
+    (c) Impossible. Cuz if the union of sets in a collection is finite, then 
+    the number of sets in the collection is finite too.
+\end{solution}
+%%%%%%%%%%%%%%
+\begin{problem}[UD: 22.3]
+    Is the set of all infinite sequences of 0's and 1's finite, countably 
+  infinite, or uncountable? Guess and then prove, please.
+\end{problem}
+
+\begin{revision}
+    Uncountable.\\
+    Suppose it is countable, then such sequences can be listed as $a_{1}a_{2}a_{3}\cdots$, 
+    $b_{1}b_{2}b_{3}\cdots$, $c_{1}c_{2}c_{3}\cdots$...\\
+    Then we can find a sequence $p_{1}p_{2}p_{3}\cdots$ that 
+    $a_{1} \neq p_{1},~b_{2} \neq p_{2},~c_{3} \neq p_{3}\cdots$\\
+    We can easily see that $p_{1}p_{2}p_{3}\cdots$ is not in the collection 
+    of $a_{1}a_{2}a_{3}\cdots$, $b_{1}b_{2}b_{3}\cdots$, $c_{1}c_{2}c_{3}\cdots$...\\
+    Which means that the set is uncountable.
+\end{revision}
+%%%%%%%%%%%%%%%%%%%%
+%\beginfb	% begin the feedback section (Optional)
+
+%你可以写：
+%\begin{itemize}
+%  \item 对课程及教师的建议与意见
+%  \item 教材中不理解的内容
+%  \item 希望深入了解的内容
+%  \item 等
+%\end{itemize}
+%%%%%%%%%%%%%%%%%%%%
+\end{document}

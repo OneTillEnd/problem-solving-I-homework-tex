@@ -1,0 +1,176 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% File: hw.tex 						   %
+% Description: LaTeX template for homework.                %
+%
+% Feel free to modify it (mainly the 'preamble' file).     %
+% Contact hfwei@nju.edu.cn (Hengfeng Wei) for suggestions. %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% IMPORTANT NOTE: Compile this file using 'XeLaTeX' (not 'PDFLaTeX') %
+%
+% If you are using TeXLive 2016 on windows,                          %
+% you may need to check the following post:                          %
+% https://tex.stackexchange.com/q/325278/23098                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[11pt, a4paper, UTF8]{ctexart}
+\input{preamble}  % modify this file if necessary
+
+%%%%%%%%%%%%%%%%%%%%
+\title{第十三讲：布尔代数}
+\me{廖玺然}{171860647}
+\date{\today}     % you can specify a date like ``2017年9月30日''.
+%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\maketitle
+%%%%%%%%%%%%%%%%%%%%
+\noplagiarism	% always keep this
+%%%%%%%%%%%%%%%%%%%%
+\beginthishw	% begin ``this homework (hw)'' part
+
+%%%%%%%%%%
+\begin{problem}	% NOTE: use '[]' (instead of '()' or '{}') to provide additional information
+  证明布尔代数是有界有补分配格，有界有补分配格是布尔代数.
+\end{problem}
+
+% The ``remark'' environments (when needed) must be 
+% put before the ``solution''/``revision''/``proof'' environments.
+\begin{remark}	% Optional
+  以下解答参考了网站https://wenku.baidu.com/view/0b1018ee0975f46527d3e18d.html
+%  \noindent 以下解答是与 XXX 同学讨论得到的。
+\end{remark}
+
+\begin{proof}
+  (1) Suppose there's a bounded, complemented, distributive lattice $M$,\\
+  $~~~~~~$Let the first element be the zero element, the last element be the 
+  unit element,\\
+  $~~~~~~$Denote $\wedge$ as $*$, $\vee$ as $+$.\\
+  $~~~~~~$Since $M$ has commutative law and distributive law,\\
+  $~~~~~~$We have\\
+  $~~~~~~(1a)~a + b = b + a~~~~~~~~~~~~~~~~~~~~~~~~~~(1b)~a * b = b * a$,\\
+  $~~~~~~(2a)~a + (b * c) = (a + b) * (a + c)~~~~~~(2b)~a * (b + c) = (a * b) + (a * c)$,\\
+  $~~~~~~$From bounded identities we have\\
+  $~~~~~~(3a)~a + 0 = a~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~(3b)~a * 1 = a$,\\
+  $~~~~~~$From complemented identities we have $\forall a \in M,~\exists b \in M,~a + b = 1,~a * b = 0$,\\
+  $~~~~~~$From Theorem 14.9 we know $b$ is unique, namely $b = a'$,\\
+  $~~~~~~$Thus $M$ is a Boolean algebra.\\
+  (2) Suppose there's a Boolean algebra $B$,\\
+  $~~~~~~$We have\\
+  $~~~~~~(sub1)~\forall a \in B,~a * 0 = 0 + (a * 0) = (a * a') + (a * 0) = a * (a' + 0) = a * a' = 0$\\
+  $~~~~~~(sub2)~\forall a \in B,~a + 1 = 1 * (a + 1) = (a + a') * (a + 1) = a + (a' * 1) = a + a' = 1$\\
+  $~~~~~~(sub3)~\forall a,b,c \in B$, if $a + b = a + c$ and $a' + b = a' + c$, then\\
+  $~~~~~~~~~~~~~~~(a + b) * (a' + b) = (a + c) * (a' + c)$, then\\
+  $~~~~~~~~~~~~~~~(a * a') + b = (a * a') + c$, then\\
+  $~~~~~~~~~~~~~~~0 + b = 0 + c$, then\\
+  $~~~~~~~~~~~~~~~b = c$,
+  $~~~~~~$We know $B$ has commutative law\\
+  $~~~~~~(1a)~a * b = b * a~~~~~~~~~~~~~~~~~~~~~~(1b)~a + b = b + a$,\\
+  $~~~~~~$We can prove the absorption law\\
+  $~~~~~~(3a)~a * (a + b) = (a + 0) * (a + b) = a + (0 * b) = a + 0 = a$\\
+  $~~~~~~(3b)~a + (a * b) = (a * 1) + (a * b) = a * (1 + b) = a * 1 = a$,\\
+  $~~~~~~$Using $(sub1)~0 * b = 0$ and $(sub2)~1 + b = 1$;\\
+  $~~~~~~$We can prove the associative law\\
+  $~~~~~~(2a)~$Since $a + (a * (b * c)) = a,~a + ((a * b) * c) = (a + (a * b)) * (a + c) = a * (a + c) = a$,\\
+  $~~~~~~~~~~~a' + (a * (b * c)) = (a' + a) * (a' + (b * c)) = 1 * (a' + (b * c)) = a' + (b * c),$\\
+  $~~~~~~~~~~~a' + ((a * b) * c) = (a' + (a * b)) * (a' + c) = (a' + b) * (a' + c) = a' + (b * c)$\\
+  $~~~~~~$From $(sub3)$ we have $a * (b * c) = (a * b) * c$,\\
+  $~~~~~~$For the same reason we have\\
+  $~~~~~~(2b)~a + (b + c) = (a + b) + c$,\\
+  $~~~~~~$Let the zero element be the first element, the unit element be the 
+  last element,\\
+  $~~~~~~$Denote $+$ as $\vee$, $*$ as $\wedge$,\\
+  $~~~~~~$Then $B$ is a lattice,\\
+  $~~~~~~$From the identity laws and $(sub1),(sub2)$ we know $B$ is a bounded lattice,\\
+  $~~~~~~$From the distributive laws we know $B$ is a distributive lattice,\\
+  $~~~~~~$From the complement laws we know $B$ is a complemented lattice,\\
+  $~~~~~~$Thus $B$ is a bounded, complemented, distributive lattice.
+\end{proof}
+%%%%%%%%%%
+
+%%%%%%%%%%
+\begin{problem}
+  证明SM定理15.6.
+\end{problem}
+
+\begin{remark}
+    以下解答参考了网站https://wenku.baidu.com/view/0b1018ee0975f46527d3e18d.html
+\end{remark}
+
+\begin{proof}
+  Suppose $x, y \in B$ and $A = \{ a_{1},a_{2}\cdots,a_{r},b_{1},b_{2}\cdots,b_{s},c_{1},c_{2}\cdots,c_{t} \}$,\\
+  $x = a_{1} + \cdots + a_{r} + b_{1} + \cdots + b_{s},~~y = b_{1} + \cdots + b_{s} + c_{1} + \cdots + c_{t}$,\\
+  Then $x + y = a_{1} + \cdots + a_{r} + b_{1} + \cdots + b_{s} + c_{1} + \cdots + c_{t}$,\\
+  $~~~~~~~~~~x * y = b_{1} + \cdots + b_{s}$,\\
+  Thus $f(x + y) = \{ a_{1},\cdots,a_{r},b_{1},\cdots,b_{s},c_{1},\cdots,c_{t} \}$\\
+  $~~~~~~~~~~~~~~~~~~~~= \{ a_{1},\cdots,a_{r},b_{1},\cdots,b_{s} \} \cup \{ b_{1},\cdots,b_{s},c_{1},\cdots,c_{t} \}$\\
+  $~~~~~~~~~~~~~~~~~~~~= f(x) \cup f(y)$,\\
+  $~~~~~~~~~~f(x * y) = \{ b_{1},\cdots,b_{s} \}$\\
+  $~~~~~~~~~~~~~~~~~~~~= \{ a_{1},\cdots,a_{r},b_{1},\cdots,b_{s} \} \cap \{ b_{1},\cdots,b_{s},c_{1},\cdots,c_{t} \}$\\
+  $~~~~~~~~~~~~~~~~~~~~= f(x) \cap f(y)$,\\
+  Let $y = c_{1} + \cdots + c_{t}$,\\
+  Then $x + y = 1$ and $x * y = 0$, namely $y = x'$,\\
+  Thus $f(x') = \{ c_{1},\cdots,c_{t} \} = \{ a_{1},\cdots,a_{r},b_{1},\cdots,b_{s} \}^{c} = (f(x))^{c}$,\\
+  Since $\forall x \in B$, the representation is unique,\\
+  $f$ is one-to-one and onto,\\
+  Thus $f$ is an isomorphism.
+\end{proof}
+%%%%%%%%%%
+% \newpage  % continue in a new page
+%%%%%%%%%%
+\begin{problem}
+  证明等势(有穷)的布尔代数均同构
+\end{problem}
+
+ \begin{remark}	
+   以下解答参考了网站https://wenku.baidu.com/view/0b1018ee0975f46527d3e18d.html
+ \end{remark}
+
+\begin{proof}
+  Suppose $B_{1}$ and $B_{2}$ are both Boolean algebra, and that $|B_{1}| = |B_{2}|$.\\
+  Let $A_{1}$ and $A_{2}$ be the set of atoms of $B_{1}$ and $B_{2}$ respectively.\\
+  We can easily find that $|A_{1}| = |A_{2}|$,\\
+  From the definition we know there's a bijection $f: A_{1} \rightarrow A_{2}$,\\
+  Define $\varphi: \mathcal{P}(A_{1}) \rightarrow \mathcal{P}(A_{2})$ by
+  $\varphi(x) = \{ f(t): t \in x \}$,\\
+  We can easily find that $\varphi$ is a bijection,\\
+  For $f: X \rightarrow Y$, if $A, B \subseteq X$, since $f$ is one-to-one\\
+  $f(A \cup B) = f(A) \cup f(B)$\\
+  $f(A \cap B) = f(A) \cap f(B)$\\
+  Also $f(x') = (f(x))'$\\
+  Thus $\varphi$ is an isomorphism,\\
+  Since there exists an isomorphism from $B_{1}$ to $\mathcal{P}(A_{1})$ and 
+  from $\mathcal{P}(A_{2})$ to $B_{2}$ respectively,\\
+  Thus there exists an isomorphism from $B_{1}$ to $B_{2}$,\\
+  Namely $B_{1}$ and $B_{2}$ are isomorphic.
+\end{proof}
+%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
+%\begincorrection	% begin the ``correction'' part (Optional)
+
+%%%%%%%%%%
+%\begin{problem}[题号]
+%  题目。
+%\end{problem}
+
+%\begin{cause}
+%  简述错误原因（可选）。
+%\end{cause}
+
+% Or use the ``solution'' environment
+%\begin{revision}
+%  正确解答。
+%\end{revision}
+%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
+%\beginfb	% begin the feedback section (Optional)
+
+%你可以写：
+%\begin{itemize}
+%  \item 对课程及教师的建议与意见
+% \item 教材中不理解的内容
+%  \item 希望深入了解的内容
+%  \item 等
+%\end{itemize}
+%%%%%%%%%%%%%%%%%%%%
+\end{document}
