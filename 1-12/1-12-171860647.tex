@@ -1,0 +1,269 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% File: hw.tex 						   %
+% Description: LaTeX template for homework.                %
+%
+% Feel free to modify it (mainly the 'preamble' file).     %
+% Contact hfwei@nju.edu.cn (Hengfeng Wei) for suggestions. %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% IMPORTANT NOTE: Compile this file using 'XeLaTeX' (not 'PDFLaTeX') %
+%
+% If you are using TeXLive 2016 on windows,                          %
+% you may need to check the following post:                          %
+% https://tex.stackexchange.com/q/325278/23098                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[11pt, a4paper, UTF8]{ctexart}
+\input{preamble}  % modify this file if necessary
+
+%%%%%%%%%%%%%%%%%%%%
+\title{第十二讲：偏序关系和格}
+\me{廖玺然}{171860647}
+\date{\today}     % you can specify a date like ``2017年9月30日''.
+%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\maketitle
+%%%%%%%%%%%%%%%%%%%%
+\noplagiarism	% always keep this
+%%%%%%%%%%%%%%%%%%%%
+\beginthishw	% begin ``this homework (hw)'' part
+
+%%%%%%%%%%
+\begin{problem}[SM: 14.32]	% NOTE: use '[]' (instead of '()' or '{}') to provide additional information
+  Let B = {a, b, c, d, e, f } be ordered as in Fig. 14-17(b).\\
+(a) Find all minimal and maximal elements of B.\\
+(b) Does B have a first or last element?\\
+(c) List two and find the number of consistent enumerations of B into the set {1, 2, 3, 4, 5, 6}.
+\end{problem}
+
+% The ``remark'' environments (when needed) must be 
+% put before the ``solution''/``revision''/``proof'' environments.
+%\begin{remark}	% Optional
+%  以下解答参考了书籍/网站/讲义 $\ldots$。
+
+%  \noindent 以下解答是与 XXX 同学讨论得到的。
+%\end{remark}
+
+\begin{solution}
+  (a) minimal: $d$, $f$.       maximal: $a$\\
+  (b) No first element.        last element: $a$.\\
+  (c) $~(i)~f(d)=1,~f(f)=2,~f(e)=3,~f(b)=4,~f(c)=5,~f(a)=6$\\
+  $~~~~~~(ii)~g(d)=2,~g(f)=1,~g(e)=3,~g(b)=4,~g(c)=5,~g(a)=6$\\
+  $~~~~~~$Totally 11.
+\end{solution}
+%%%%%%%%%%
+
+%%%%%%%%%%
+\begin{problem}[SM: 14.44]
+  Suppose the following are three consistent enumerations of an ordered set A = {a, b, c, d}:\\
+$[(a, 1), (b, 2), (c, 3), (d, 4)],
+[(a, 1), (b, 3), (c, 2), (d, 4)],
+[(a, 1), (b, 4), (c, 2), (d, 3)]$\\
+Assuming the Hasse diagram D of A is connected, draw D.
+\end{problem}
+
+\begin{solution}
+  Please see the attachment for the answer.
+\end{solution}
+%%%%%%%%%%
+% \newpage  % continue in a new page
+%%%%%%%%%%
+\begin{problem}[SM: 14.46]
+  Consider the English alphabet A = {a, b, c, . . . , y, z} with the usual (alphabetical) order. Recall $A^{*}$ consists of all
+words in A. Let L consist of the following list of elements in $A^{*}$:\\
+$~~~~~~$gone, or, arm, go, an, about, gate, one, at, occur\\
+(a) Sort L according to the short-lex order, i.e., first by length and then alphabetically.\\
+(b) Sort L alphabetically.
+\end{problem}
+
+% \begin{remark}	
+%   Refer to book.
+% \end{remark}
+
+\begin{solution}
+  (a) an, at, go, or, arm, one, gate, gone, about, occur.\\
+  (b) about, an, arm, at, gate, go, gone, occur, one, or.
+\end{solution}
+%%%%%%%%%%
+
+%%%%%%%%%%
+\begin{problem}[SM: 14.58]
+  Show that the isomorphism relation $A \cong B$ for ordered sets is an 
+  equivalence relation, that is:\\
+  (a) $A \cong A$ for any ordered set $A$. (b) If $A \cong B$, then $B \cong A$. 
+  (c) If $A \cong B$ and $B \cong C$, then $A \cong C$.
+\end{problem}
+
+\begin{solution}
+  (a) Define $f: A \rightarrow A$ by $f = \{ (a,a): a \in A \}$, then\\
+  $~~~~~~~(i)~$If $a \precsim a'$, then $f(a) \precsim f(a')$,\\
+  $~~~~~~(ii)~$If $a || a'$, then $f(a) || f(a')$,\\
+  $~~~~~~$Thus $A \cong A$;\\
+  (b) Define $g: A \rightarrow B$ that preserves the order relation,\\
+  $~~~~~~$Since $A \cong B$, $g$ is a bijection, $g^{-1}(g(x)) = x$,\\
+  $~~~~~~$And $a \precsim a' \Leftrightarrow g(a) \precsim g(a')$, $a || a' \Leftrightarrow g(a) || g(a')$,\\
+  $~~~~~~~(i)~$From $a \precsim a' \Leftrightarrow g(a) \precsim g(a')$ we 
+  can conclude that\\
+  $~~~~~~~~~~~~\forall b,b' \in B$, if $b \precsim b'$, then $g^{-1}(b) \precsim g^{-1}(b')$,\\
+  $~~~~~~(ii)~$From $a || a' \Leftrightarrow g(a) || g(a')$ we can conclude that\\
+  $~~~~~~~~~~~~\forall b,b' \in B$, if $b || b'$, then $g^{-1}(b) || g^{-1}(b')$;\\
+  $~~~~~~$Thus $g^{-1}$ preserves the order relation,\\
+  $~~~~~~$Thus $B \cong A$;\\
+  (c) Define $f: A \rightarrow B$ and $g: B \rightarrow C$ that preserve the order relations,\\
+  $~~~~~~$Since $A \cong B$, $B \cong C$, $f$ and $g$ are both bijections,\\
+  $~~~~~~$Thus $g \circ f$ is a bijection, $(g \circ f)(x) = g(f(x))$,\\
+  $~~~~~~~(i)~$From $a \precsim a' \Rightarrow f(a) \precsim f(a')$, 
+  $f(a) \precsim f(a') \Rightarrow g(f(a)) \precsim g(f(a'))$ we can conclude that\\
+  $~~~~~~~~~~~~\forall a,a' \in A$, if $a \precsim a'$, then $g(f(a)) \precsim g(f(a'))$,\\
+  $~~~~~~(ii)~$From $a || a' \Rightarrow f(a) || f(a')$, $f(a) || f(a') \Rightarrow g(f(a)) || g(f(a'))$ 
+  we can conclude that\\
+  $~~~~~~~~~~~~\forall a,a' \in A$, if $a || a'$, then $g(f(a)) || g(f(a'))$;\\
+  $~~~~~~$Thus $g \circ f$ preserves the order relation,\\
+  $~~~~~~$Thus $A \cong C$.
+\end{solution}
+%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%
+\begin{problem}[SM: 14.62]
+  Suppose A and B are well-ordered isomorphic sets. Show that there is only one similarity mapping f : A → B.
+\end{problem}
+
+\begin{solution}
+  Since $A$ and $B$ are both well-ordered,\\
+  Denote $a_{0}$, $b_{0}$ as the first element of $A$ and $B$ respectively,\\
+  Let $a_{i+1}$, $b_{i+1}$ be the cover of $a_{i}$ and $b_{i}$ respectively
+  ($i \geq 0$, $i \in \mathbb{Z}$),\\
+  Since $A$ and $B$ are isomorphic,\\
+  We can easily find a similarity mapping $f = \{ (a_{i},b_{i}): a_{i} \in A,~b_{i} \in B,
+  ~i \geq 0,~i \in \mathbb{Z} \}$,\\
+  Suppose we can define another similarity mapping $g: A \rightarrow B$,\\
+  Then $g(A) \subseteq B$,\\
+  By transfinite induction, we have that\\
+  $~(i)~g(a_{0}) \in B$;\\
+  $(ii)~\forall i \geq 0$, $g(a_{i+k}) > g(a_{i})$ ($k > 0,~k \in \mathbb{Z}$),\\
+  $~~~~~~$And $\{ g(a_{i+k}): k > 0,~k \in \mathbb{Z} \} \subseteq B$,\\
+  $~~~~~~$Thus $g(a_{i}) \in B$;\\
+  Then $g(A) = B$.\\
+  Thus $g(a_{0}) = b_{0}$,\\
+  Since $g(a_{i+1})$ is the cover of $g(a_{i})$,\\
+  We have that $g(a_{i}) = b_{i}$,\\
+  Thus $f = g$,\\
+  Thus there is only one similarity mapping $f: A \rightarrow B$.
+\end{solution}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%
+\begin{problem}[SM: 14.66]
+  Consider the lattice M in Fig. 14-19(b).\\
+(a) Find all join-irreducible elements.\\
+(b) Find the atoms.\\
+(c) Find complements of a and b, if they exist.\\
+(d) Express each x in M as the join of irredundant join-irreducible elements.\\
+(e) Is M distributive? Complemented?
+\end{problem}
+
+\begin{solution}
+  (a) $0,~a,~b,~c,~g$.\\
+  (b) $a,~b,~c$.\\
+  (c) $a$: $g$;  $b$: none.\\
+  (d) $d = a \vee c$, $e = b \vee c$, $f = a \vee c$, $I = a \vee g$.\\
+  (e) $~(i)~$Nope, cuz $a \vee (b \wedge c) = a$ and $(a \vee b) \wedge (a \vee c) = d$,\\
+  $~~~~~~(ii)~$Nope, cuz $b$ has no complement.
+\end{solution}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%
+\begin{problem}[SM: 14.70]
+  Consider the lattice $D_{60} = \{1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30, 60\}$, the divisors of 60 ordered by divisibility.\\
+(a) Draw the diagram of $D_{60}$.\\
+(b) Which elements are join-irreducible and which are atoms?\\
+(c) Find complements of 2 and 10, if they exist.\\
+(d) Express each number x as the join of a minimum number of irredundant join irreducible elements.
+\end{problem}
+
+\begin{solution}
+  (a) Please see the attachment for the answer.\\
+  (b) join-irreducible: $1,~2,~3,~5,~4$;  atoms: $2,~3,~5$.\\
+  (c) $2$: none;  $10$: none.\\
+  (d) $6 = 2 \vee 3$, $10 = 2 \vee 5$, $15 = 3 \vee 5$, $12 = 3 \vee 4$, 
+  $20 = 4 \vee 5$, $30 = 2 \vee 3 \vee 5$, $60 = 4 \vee 3 \vee 5$.
+\end{solution}
+%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%
+\begin{problem}[SM: 14.75]
+  A lattice M is said to be modular if whenever a ≤ c we have the law\\
+$~~~~~~~~~~~~~~~~$a ∨ (b ∧ c) = (a ∨ b) ∧ c\\
+(a) Prove that every distributive lattice is modular.\\
+(b) Verify that the non-distributive lattice in Fig. 14-7(b) is modular; hence the converse of (a) is not true.\\
+(c) Show that the nondistributive lattice in Fig. 14-7(a) is non-modular. (In fact, one can prove that every non-modular
+lattice contains a sublattice isomorphic to Fig. 14-7(a).)
+\end{problem}
+
+\begin{solution}
+  (a) If $a \leq c$, then $a \vee c = c$,\\
+  $~~~~~~$If $M$ is distributive, then\\
+  $~~~~~~a \vee (b \wedge c) = (a \vee b) \wedge (a \vee c)$\\
+  $~~~~~~~~~~~~~~~~~~~= (a \vee b) \wedge c$.\\
+  (b) $0 \vee (a \wedge b) = 0 = (0 \vee a) \wedge b$, thus $\forall x,y \in \{ a,b,c \}$, 
+  $0 \vee (x \wedge y) = (0 \vee x) \wedge y$;\\
+  $~~~~~~0 \vee (a \wedge I) = a = (0 \vee a) \wedge I = (0 \vee I) \wedge a$, 
+  thus $\forall x \in \{ a,b,c \}$, $0 \vee (x \wedge I) = (0 \vee x) \wedge I = (0 \vee I) \wedge x$;\\
+  $~~~~~~a \vee (b \wedge I) = I = (a \vee b) \wedge I$, thus $\forall x,y \in \{ a,b,c \}$, 
+  $x \vee (y \wedge I) = (x \vee y) \wedge I$.\\
+  $~~~~~~$Thus $\forall a,b,c \in M$ that satisfy $a \leq c$, we have $a \vee (b \wedge c) = (a \vee b) \wedge c$,\\
+  $~~~~~~$Namely $M$ is modular.\\
+  (c) Here $a \vee (b \wedge c) = a$, $(a \vee b) \wedge c = c$,\\
+  $~~~~~~$Thus $M$ is not modular.
+\end{solution}
+%%%%%%%%%%%%%%%%%%%%
+%\begincorrection	% begin the ``correction'' part (Optional)
+
+%%%%%%%%%%
+%\begin{problem}[题号]
+%  题目。
+%\end{problem}
+
+%\begin{cause}
+%  简述错误原因（可选）。
+%\end{cause}
+
+% Or use the ``solution'' environment
+%\begin{revision}
+%  正确解答。
+%\end{revision}
+%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
+%\beginfb	% begin the feedback section (Optional)
+
+%你可以写：
+%\begin{itemize}
+%  \item 对课程及教师的建议与意见
+%  \item 教材中不理解的内容
+%  \item 希望深入了解的内容
+%  \item 等
+%\end{itemize}
+%%%%%%%%%%%%%%%%%%%%
+\beginattch
+
+%%%%%%%%%%%%
+\begin{problem}[SM: 14.44]
+  
+\end{problem}
+
+\begin{attachment}
+  \fignocaption{width = 0.70\textwidth}{figs/drawing_1}
+\end{attachment}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%
+\begin{problem}[SM: 14.70]
+  
+\end{problem}
+
+\begin{attachment}
+  \newpage
+  \fignocaption{width = 0.70\textwidth}{figs/drawing_2}
+\end{attachment}
+\end{document}
