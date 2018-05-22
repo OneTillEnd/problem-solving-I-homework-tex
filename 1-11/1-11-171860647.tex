@@ -1,0 +1,483 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% File: hw.tex 						   %
+% Description: LaTeX template for homework.                %
+%
+% Feel free to modify it (mainly the 'preamble' file).     %
+% Contact hfwei@nju.edu.cn (Hengfeng Wei) for suggestions. %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% IMPORTANT NOTE: Compile this file using 'XeLaTeX' (not 'PDFLaTeX') %
+%
+% If you are using TeXLive 2016 on windows,                          %
+% you may need to check the following post:                          %
+% https://tex.stackexchange.com/q/325278/23098                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[11pt, a4paper, UTF8]{ctexart}
+\input{preamble}  % modify this file if necessary
+
+%%%%%%%%%%%%%%%%%%%%
+\title{第十一讲：有限与无限}
+\me{廖玺然}{171860647}
+\date{\today}     % you can specify a date like ``2017年9月30日''.
+%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\maketitle
+%%%%%%%%%%%%%%%%%%%%
+\noplagiarism	% always keep this
+%%%%%%%%%%%%%%%%%%%%
+\beginthishw	% begin ``this homework (hw)'' part
+
+%%%%%%%%%%
+\begin{problem}[UD: 20.4]	% NOTE: use '[]' (instead of '()' or '{}') to provide additional information
+  (a) Show that the positive rationals $\mathbb{Q}^{+}$ and the negative 
+  rationals $\mathbb{Q}^{-}$ are equivalent.\\
+  (b) Show that the even and odd integers are equivalent.
+\end{problem}
+
+% The ``remark'' environments (when needed) must be 
+% put before the ``solution''/``revision''/``proof'' environments.
+%\begin{remark}	% Optional
+%  以下解答参考了书籍/网站/讲义 $\ldots$。
+%
+%  \noindent 以下解答是与 XXX 同学讨论得到的。
+%\end{remark}
+
+\begin{solution}
+  (a) Define a function $f: \mathbb{Q}^{+} \rightarrow \mathbb{Q}^{-}$ 
+  by $f(x) = -x$, prove that it's bijective:\\
+  $~~~~~~\forall x_{1}, x_{2} \in \mathbb{Q}^{+}$, if $x_{1} \neq x_{2}$, 
+  then $-x_{1} \neq -x_{2}$.\\
+  $~~~~~~\forall x_{1} \in \mathbb{Q}^{-}$, $\exists x_{2} \in \mathbb{Q}^{+}$, 
+  $x_{1} = -x_{2}$.\\
+  $~~~~~~$Thus $f$ is bijective, which means that $\mathbb{Q}^{+} \approx \mathbb{Q}^{-}$.\\
+  (b) Let $\mathbb{A}$ and $\mathbb{B}$ be the set of all even integers 
+  and all odd integers respectively.\\
+  $~~~~~~$Define a function $f: \mathbb{A} \rightarrow \mathbb{B}$ by 
+  $f(x) = x + 1$, prove that it's bijective:\\
+  $~~~~~~\forall x_{1}, x_{2} \in \mathbb{A}$, if $x_{1} \neq x_{2}$, 
+  then $x_{1} + 1 \neq x_{2} + 1$.\\
+  $~~~~~~\forall x_{1} \in \mathbb{B}$, $\exists x_{2} \in \mathbb{A}$, 
+  $x_{1} = x_{2} + 1$.\\
+  $~~~~~~$Thus $f$ is bijective, which means that the even and odd 
+  integers are equivalent.
+\end{solution}
+%%%%%%%%%%
+
+%%%%%%%%%%
+\begin{problem}[UD: 20.8]
+  Prvoe Theorem 20.6 working with the outline given in the text.
+\end{problem}
+
+\begin{solution}
+  Proof.\\
+  $\forall x \in A$, $H(x) = f(x)$, since $f$ is well-defined and 
+  bijective, $H|_{A}$ is well-defined and bijective.\\
+  For the same reason we can prove that $H|_{B}$ is well-defined 
+  and bijective.\\
+  Thus $H$ is well-defined and bijective.\\
+  Then we can conclude that $A \cup B \approx C \cup D$.
+\end{solution}
+%%%%%%%%%%
+% \newpage  % continue in a new page
+%%%%%%%%%%
+\begin{problem}[UD: 20.9]
+  (a) Suppose that $A$ and $B$ are nonempty finite sets and $A \cap B = \emptyset$. 
+  Show that there exist integers $n$ and $m$ such that $A \approx \{ 1,2,...,n \}$ 
+  and $B \approx \{ n + 1,...,n + m \}$.\\
+  (b) Prove Corollary 20.8
+\end{problem}
+
+% \begin{remark}	
+%   Refer to book.
+% \end{remark}
+
+\begin{solution}
+  (a) Since $A$ is finite, $\exists n \in \mathbb{Z}^{+}$, $A \approx \{ 1,2,...,n \}$.\\
+  $~~~~~~$Since $B$ is finite, $\exists m \in \mathbb{Z}^{+}$, $B \approx \{ 1,2,...,m \}$.\\
+  $~~~~~~$Define a function $f: \{ 1,2,...,m \} \rightarrow \mathbb{Z}^{+}$ by 
+  $f(x) = x + n$, we can prove that $f$ is bijective, thus $ran(f) \approx \{ 1,2,...,m \}$.\\
+  $~~~~~~$Since $ran(f) = \{ n + 1,...,n + m \}$, we can conclude that 
+  $\exists m \in \mathbb{Z}^{+}$, $B \approx \{ n + 1,...,n + m \}$.\\
+  (b) From (a) we know that $\exists n, m \in \mathbb{Z}^{+}$, $A \approx \{ 1,2,...,n \}$ 
+  and $B \approx \{ n + 1,...,n + m \}$.\\
+  $~~~~~~$Let $C$ and $D$ be $\{ 1,2,...,n \}$ and $\{ n + 1,...,n + m \}$ 
+  respectively, then $C \cap D = \emptyset$.\\
+  $~~~~~~$From Theorem 20.6 we can conclude that $A \cup B \approx C \cup D$.\\
+  $~~~~~~$Since $C \cup D = \{ 1,2,...,n + m \}$, we can conclude that 
+  $A \cup B$ is finite.
+\end{solution}
+%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{problem}[UD: 20.10]
+  Prove Theorem 20.14 below. We suggest that you start by working Problem 15.14 
+  if you have not already done so.
+\end{problem}
+
+\begin{solution}
+  Since $A \approx C$ and $B \approx D$, we can define two bijective functions $f: A \rightarrow C$ and $g: B \rightarrow D$.\\
+  Define a function $H: A \times B \rightarrow C \times D$ by 
+  $$H(a, c) = (f(a), g(c)).$$\\
+  From Problem 15.14 we know that $H$ is bijective.\\
+  Thus $A \times B = C \times D$.
+\end{solution}
+%%%%%%%%%
+
+%%%%%%%%%%%
+\begin{problem}[UD: 21.7]
+  Show that $\mathbb{Q}$ is infinite.
+\end{problem}
+
+\begin{solution}
+  We know that $\mathbb{N} \subset \mathbb{Q}$, and Theorem 21.3 tells 
+  us that $\mathbb{N}$ is infinite. Since Corollary 20.11 says that 
+  every subset of a finite set is finite, our set $\mathbb{Q}$ must be 
+  infinite.
+\end{solution}
+%%%%%%%%
+
+%%%%%%%%%%%
+\begin{problem}[UD: 21.9]
+  Let $A$ be a set, and suppose that $B$ is an infinite subset of $A$. 
+  Show that $A$ must be infinite.
+\end{problem}
+
+\begin{solution}
+  From Corollary 20.11 we know that $\forall B \subseteq A$, if 
+  $A$ is finite, then $B$ is finite, so we know the following 
+  contrapositive is true:\\
+  $\forall B \subseteq A$, if $B$ is not finite, then $A$ is not finite.\\
+  And from the definition of finite sets we know that if a set is 
+  not finite, then it is infinite.\\
+  Thus according to the conditions in this problem, we can conclude 
+  that $A$ is infinite.
+\end{solution}
+%%%%%%%%%
+
+%%%%%%%%%
+\begin{problem}[UD: 21.10]
+  Suppose that $A$ is an infinite set, $B$ is a finite set and $f: A \rightarrow B$ 
+  is a function. Show that there exists $b \in B$ such that $f^{-1}(\{ b \})$ 
+  is infinite.
+\end{problem}
+
+\begin{solution}
+  Suppose $\forall b \in B$, $f^{-1}(\{ b \})$ is finite,\\
+  From Exercise 20.13 we know that $\bigcup _{b \in B} f^{-1}(\{ b \})$ is finite.\\
+  But in fact $\bigcup _{b \in B} f^{-1}(\{ b \}) \approx A$, which means that 
+  $\bigcup _{b \in B} f^{-1}(\{ b \})$ is infinite, and this contradicts the deduction 
+  above.\\
+  So we can conclude that $\exists b \in B$, $f^{-1}(\{ b \})$ is infinite.
+\end{solution}
+%%%%%%%%%
+
+%%%%%%%%%
+\begin{problem}[UD: 21.11]
+  Let $X$ be an infinite set, and $A$ and $B$ be finite subsets of $X$. 
+  Answer each of the following, giving reasons for your answers:\\
+  (a) Is $A \cap B$ finite or infinite?\\
+  (b) Is $A \backslash B$ finite or infinite?\\
+  (c) Is $X \backslash A$ finite or infinite?\\
+  (d) Is $A \cup B$ finite or infinite?\\
+  (e) If $f: A \rightarrow X$ is a one-to-one function, is $f(A)$ 
+  finite or infinite? 
+\end{problem}
+
+\begin{solution}
+  (a) Finite, cuz $(A \cap B) \subseteq A$ and $A$ is finite.\\
+  (b) Finite, cuz $(A \backslash B) \subseteq A$ and $A$ is finite.\\
+  (c) Infinite, cuz if it is finite, then $X = (X \backslash A) \cup A$ 
+  is finite, which contradicts the conditions.\\
+  (d) Finite, according to Theorem 20.12 (The union of two finite sets 
+  is finite).\\
+  (e) Finite, since $f$ is a one-to-one function, $f(A) \approx A$, 
+  thus $f(A)$ is finite.
+\end{solution}
+%%%%%%%%%
+
+%%%%%%%%%%
+\begin{problem}[UD: 21.16]
+  (a) Suppose that $A$ is a finite set and $B \subseteq A$. We showed 
+  that $B$ is finite. Show that $|B| \leq |A|$.\\
+  (b) Suppose that $A$ is a finite set and $B \subseteq A$. Show that 
+  if $B \neq A$, then $|B| < |A|$.\\
+  (c) Show that if two finite sets $A$ and $B$ satisfy $B \subseteq A$ 
+  and $|A| \leq |B|$, then $A = B$.
+\end{problem}
+
+\begin{solution}
+  (a) Suppose $A \approx \{ 1,2,...,n \}$, $B \approx \{ 1,2,...,m \}$,\\
+  $~~~~~~$Then $|A| = n$, $|B| = m$.\\
+  $~~~~~~$If $B = A$, according to Theorem 21.6, $m = n$, namely 
+  $|A| = |B|$;\\
+  $~~~~~~$If $B \subset A$, then $m \neq n$,\\
+  $~~~~~~$Suppose $m > n$, we will have that $\exists b \in B$, 
+  $\forall a \in A$, $a \neq b$, which contradicts the condition 
+  $B \subset A$,\\
+  $~~~~~~$Thus $m < n$, namely $|B| < |A|$;\\
+  $~~~~~~$So we can conclude that $|B| \leq |A|$.\\
+  (b) We have proved it in (a).\\
+  (c) Suppose $A \approx \{ 1,2,...,n \}$, $B \approx \{ 1,2,...,m \}$,\\
+  $~~~~~~$Since $|A| \leq |B|$, we have that $n \leq m$,\\
+  $~~~~~~$Since $B \subseteq A$, from (a) we know $m \leq n$,\\
+  $~~~~~~$Thus $m = n$, namely $|A| = |B|$,\\
+  $~~~~~~$Since $B \subseteq A$, namely $\forall b \in B$, $\exists a \in A$, 
+  $a = b$,\\
+  $~~~~~~$We can conclude that $A = B$.
+\end{solution}
+%%%%%%%%%
+
+%%%%%%%%%
+\begin{problem}[UD: 21.17]
+  Suppose that $A$ and $B$ are finite sets and $f: A \rightarrow B$ 
+  is one-to-one. Show that $|A| \leq |B|$.
+\end{problem}
+
+\begin{solution}
+  Denote $A \approx \{ 1,2,...,n \}$, $B \approx \{ 1,2,...,m \}$.\\
+  Suppose $|A| > |B|$, namely $n > m$,\\
+  If it is possible to define a one-to-one function from $A$ to $B$,\\
+  Then it must be possible to define a one-to-one function from 
+  $\{ 1,2,...,n \}$ to $\{ 1,2,...,m \}$,\\
+  But this contradicts Pigeonhole principle,\\
+  Thus we can conclude that $|A| \leq |B|$.
+\end{solution}
+%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%
+\begin{problem}[UD: 21.18]
+  Let $A$ and $B$ be sets with $A$ finite. Let $f: A \rightarrow B$. 
+  Prove that $|ran(f)| \leq |A|$.
+\end{problem}
+
+\begin{solution}
+  Denote $A \approx \{ 1,2,...,n \}$, then $|A| = n$.\\
+  If $f$ is one-to-one, then $ran(f) = \{ f(x_{i}): x_{i} \in A,~i \in \mathbb{Z}, 1 \leq i \leq n \}$,\\
+  Thus $ran(f) \approx \{ 1,2,...,n \}$, namely $|ran(f)| = n$,\\
+  Namely $|ran(f)| = |A|$;\\
+  If $f$ is not one-to-one, then $\exists x_{1}, x{2} \in A$, 
+  $f(x_{1}) = f(x_{2})$,\\
+  Thus $ran(f) \approx \{ 1,2,...,m \}~(m < n)$,\\
+  Thus $|ran(f)| = m < n = |A|$;\\
+  So we can conclude that $|ran(f)| \leq |A|$
+\end{solution}
+%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%
+\begin{problem}[UD: 21.19]
+  Let $A$ be a finite set. Show that a function $f: A \rightarrow A$ 
+  is one-to-one if and only if it is onto. Is this still true if $A$ 
+  is infinite?
+\end{problem}
+
+\begin{solution}
+  $~(i)~$If $f$ is one-to-one, then $|ran(f)| = |A|$,\\
+  $~~~~~~$Since $|cod(f)| = |A|$, $ran(f) \subseteq cod(f)$,\\
+  $~~~~~~$We have that $ran(f) = cod(f)$, namely $f$ is onto;\\
+  $(ii)~$If $f$ is onto,\\
+  $~~~~~~$Suppose $\exists x_{1}, x_{2} \in A$, $f(x_{1}) = f(x_{2})$,\\
+  $~~~~~~$Then $|ran(f)| < |A| = |cod(f)|$,\\
+  $~~~~~~$Thus $\forall x_{1}, x_{2} \in A$, $f(x_{1}) \neq f(x_{2})$,\\
+  $~~~~~~$Namely $f$ is one-to-one;
+  $(i)$ and $(ii)$ complete the proof.
+\end{solution}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%
+\begin{problem}[UD: 22.1]
+  Give an example, if possible, of each of the following:\\
+  (a) a countably infinite collection of pairwise disjoint finite sets 
+  whose union is countably infinite;\\
+  (b) a countably infinite collection of nonempty sets whose union is 
+  finite;\\
+  (c) a countably infinite collection of pairwise disjoint nonempty 
+  sets whose union is finite.
+\end{problem}
+
+\begin{solution}
+  (a) $\{ \{ i \}: i \in \mathbb{N} \}.$\\
+  (b) $\{ \{ i~mod~3\}: i \in \mathbb{N} \}.$\\
+  (c) $\{ \{ i~mod~3\}: i \in \mathbb{N} \}.$
+\end{solution}
+%%%%%%%%%%
+
+%%%%%%%%%%
+\begin{problem}[UD: 22.2]
+  Which of the following sets are finite? countably infinite? uncountable? 
+  Give reasons for your answers for each of the following:\\
+  (a) $\{ 1/n: n \in \mathbb{Z} \backslash \{ 0 \} \}$;\\
+  (b) $\mathbb{R} \backslash \mathbb{N}$;\\
+  (c) $\{ x \in \mathbb{Z}: |x - 7| < |x| \}$;\\
+  (d) $2\mathbb{Z} \times 3\mathbb{Z}$;\\
+  (e) the set of all lines with rational slopes;\\
+  (f) $\mathbb{Q} \backslash \{ 0 \}$;\\
+  (g) $\mathbb{N} \backslash \{ 1,3 \}$.
+\end{problem}
+
+\begin{solution}
+  (a) Countably infinite, cuz it is infinite and is a subset of 
+  $\mathbb{Q}$ (referred to Corollary 22.4 and Theorem 22.11).\\
+  (b) Uncountable, cuz $(0, 1)$ is uncountable and $(0, 1) \subset \mathbb{R} \backslash \mathbb{N}$
+   (referred to Corollary 22.4 and the proof of Theorem 22.12).\\
+  (c) Countably infinite, cuz it is infinite and is a subset of 
+  $\mathbb{Q}$ (referred to Corollary 22.4 and Theorem 22.11).\\
+  (d) Countably infinite, cuz it is infinite and $2\mathbb{Z}$ and 
+  $3\mathbb{Z}$ are both countable (referred to Corollary 22.4, 22.10 
+  and Theorem 22.11).\\
+  (e) Uncountable, cuz it can be described by $\mathbb{R} \times \mathbb{Q}$.\\
+  (f) Countably infinite, cuz it is infinite and is a subset of 
+  $\mathbb{Q}$ (referred to Corollary 22.4 and Theorem 22.11).\\
+  (g) Countably infinite, cuz it is infinite and is a subset of 
+  $\mathbb{N}$ (referred to Theorem 22.2).\\
+\end{solution}
+%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%
+\begin{problem}[UD: 22.3]
+  Is the set of all infinite sequences of 0's and 1's finite, countably 
+  infinite, or uncountable? Guess and then prove, please.
+\end{problem}
+
+\begin{solution}
+  Countably infinite, cuz\\
+  Define set $A_{i} = \{ (\{ a_{n} \}, \{ b_{i} \}): a_{n} = b_{n}~
+  if~n \neq i,~a_{n} < b_{n}~if~n = i \}$.\\
+  Then the set this problem referred to can be defined as $\{ A_{i}: i \in \mathbb{N}^{+} \}$,\\
+  $\forall i \in \mathbb{N}^{+}$, $|A_{i}| = 2^{n - 1}$,\\
+  Thus $A_{i} \approx \mathbb{N}$,\\
+  Then $\{ A_{i}: i \in \mathbb{N}^{+} \} \approx \mathbb{N}^{2}$,\\
+  From Theorem 22.8 we know that $\{ A_{i}: i \in \mathbb{N}^{+} \}$ 
+  is countable,\\
+  So we can conclude that the set of all infinite sequences of 0's 
+  and 1's is countably infinite.
+\end{solution}
+%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%
+\begin{problem}[UD: 22.6]
+  Prove Corollary 22.4.
+\end{problem}
+
+\begin{solution}
+  Suppose $A$ is countable, $B \subseteq A$.\\
+  If $A$ is finite, then $B$ is finite, and it is countable;\\
+  If $A$ is countably infinite,\\
+  $~~~$If $B$ is finite, then $B$ is countable,\\
+  $~~~$If $B$ is infinite, we know that there exists a one-to-one 
+  function $f: A \rightarrow \mathbb{N}$, so we define $g: B \rightarrow \mathbb{N}$ 
+  by $g(x) = f(x),~x \in B$, then $g$ is also one-to-one, thus $B$ is 
+  countable;\\
+  From all the cases above, we can conclude that every subset of a 
+  countable set is countable.
+\end{solution}
+%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%
+\begin{problem}[UD: 22.9]
+  There is another way to show that $\mathbb{Q}$ is countable. Turn 
+  the outline below into a proof by describing the counting process.
+\end{problem}
+
+\begin{solution}
+  Always start counting from the first row;\\
+  Move towards the lower left direction;\\
+  When reaching the elements in the first column, 
+  go back to the next element in the first row and continue counting.\\
+  Then we can find a one-to-one function from $\mathbb{Q}^{+}$ to $\mathbb{N}$.
+\end{solution}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%
+\begin{problem}[UD: 23.2]
+  (a) In $\mathbb{R}$, find the distance of the number 1 to the number 
+  3 in the usual metric and in the discrete metric.
+  (b) In $\mathbb{R}^{2}$, find the distance of the point $(1,3)$ to 
+  the point $(2,5)$ in the usual metric, the taxicab metric, the max 
+  metric, and the discrete metric.
+\end{problem}
+
+\begin{solution}
+  (a) $d_{u}(1,3) = 2$, $d_{d}(1,3) = 1$.\\
+  (b) $d_{u}((1,3),(2,5)) = \sqrt5$, $d_{tc}((1,3),(2,5)) = 3$, 
+  $d_{m}((1,3),(2,5)) = 2$, $d_{d}((1,3),(2,5)) = 1$.
+\end{solution}
+%%%%%%%%%%
+
+%%%%%%%%%%%
+\begin{problem}[UD: 23.3]
+  (a) Sketch the set $\{ (x,y) \in \mathbb{R}^{2}: d_{u}((x,y),(0,0)) < 1 \}$.\\
+  (b) Sketch the set $\{ (x,y) \in \mathbb{R}^{2}: d_{tc}((x,y),(0,0)) < 1 \}$.\\
+  (c) Sketch the set $\{ (x,y) \in \mathbb{R}^{2}: d_{m}((x,y),(0,0)) < 1 \}$.\\
+  (d) Sketch the set $\{ (x,y) \in \mathbb{R}^{2}: d_{d}((x,y),(0,0)) < 1 \}$.\\
+  (e) Sketch the set $\{ (x,y,z) \in \mathbb{R}^{3}: d_{u}((x,y,z),(0,0,0)) < 1 \}$.\\
+\end{problem}
+
+\begin{solution}
+  Please refer to the attachment for the answers.(The target space is 
+  marked with shadow or simply surrounded by boundary)
+\end{solution}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%
+\begin{problem}[UD: 23.10]
+  Let $X$ be the space of polynomials with real coefficients. Define 
+  a function $d$ from $X \times X \rightarrow \mathbb{R}$ by $d(p,q) = |p(0) - q(0)|$.
+  Is $d$ a metric? If so, prove it. If not, why not?
+\end{problem}
+
+\begin{solution}
+  Nope, cuz the definiteness of metric tells that if $d(p,q) = |p(0) - q(0)| = 0$, 
+  then $p = q$, but in fact we can easily find a pair of $p$ and $q$, 
+  for example, $p(x) = x^{2} + 2x + 1$, $q(x) = x^{2} + 1$, they satisfy 
+  $|p(0) - q(0)| = 0$, while $p(x) \neq q(x)$.
+\end{solution}
+
+
+%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
+%\begincorrection	% begin the ``correction'' part (Optional)
+
+%%%%%%%%%%
+%\begin{problem}[题号]
+%  题目。
+%\end{problem}
+
+%\begin{cause}
+%  简述错误原因（可选）。
+%\end{cause}
+
+% Or use the ``solution'' environment
+%\begin{revision}
+%  正确解答。
+%\end{revision}
+%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%
+%\beginfb	% begin the feedback section (Optional)
+
+%你可以写：
+%\begin{itemize}
+%  \item 对课程及教师的建议与意见
+%  \item 教材中不理解的内容
+%  \item 希望深入了解的内容
+%  \item 等
+%\end{itemize}
+%%%%%%%%%%%%%%%%%%%%
+\beginattch
+
+\begin{problem}[UD: 23.3]
+  
+\end{problem}
+
+\begin{attachment}
+  \fignocaption{width = 0.50\textwidth}{figs/a}
+  \fignocaption{width = 0.50\textwidth}{figs/b}
+  \fignocaption{width = 0.50\textwidth}{figs/c}
+  \fignocaption{width = 0.50\textwidth}{figs/d}
+  \fignocaption{width = 0.50\textwidth}{figs/e}
+\end{attachment}
+
+%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
